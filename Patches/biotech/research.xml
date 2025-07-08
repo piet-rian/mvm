@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- ===== 仕事 `研究` 内の作業の一部をメカでも実行可能にする ===== -->
+
+  <!--
+      * 他Modでも同等のパッチが入ってる可能性があるため、
+      * PatchOperationConditional で有無を判断しながらパッチを当てる
+  -->
+
+  <!-- 異種胚を作成 -->
+  <Operation MayRequire="Ludeon.RimWorld.Biotech" Class="PatchOperationConditional">
+    <xpath>//WorkGiverDef[defName="CreateXenogerm"]/canBeDoneByMechs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>//WorkGiverDef[defName="CreateXenogerm"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>//WorkGiverDef[defName="CreateXenogerm"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>
