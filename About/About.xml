@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 
-    <!-- see. https://rimworldwiki.com/wiki/Modding_Tutorials/About.xml -->
+    <packageId>piet.rian.mvm</packageId>
+    <name>More versatile mechanoid</name>
+    <authors>
+        <li>piet-rian</li>
+    </authors>
+    <description>TODO</description>
+    <supportedVersions>
+        <li>1.6</li>
+    </supportedVersions>
+
+    <modVersion>1.0</modVersion>
+    <url>https://github.com/piet-rian/mvm</url>
+
+
+    <modDependencies>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <displayName>Biotech</displayName>
+        </li>
+    </modDependencies>
+
+    <loadAfter>
+        <li>ludeon.rimworld</li>
+        <li>ludeon.rimworld.royalty</li>
+        <li>ludeon.rimworld.ideology</li>
+        <li>ludeon.rimworld.biotech</li>
+        <li>ludeon.rimworld.anomaly</li>
+    </loadAfter>
 
 </ModMetaData>

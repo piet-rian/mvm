@@ -1,16 +1,36 @@
-# RimworldXMLModTemplate
+# More versatile mechanoid
 
-This is the template repository for XML-based mods in RIMWORLD.
+- メカノイド全般実行可能な作業の種類を増やすMod
+- 実行可能になる作業は多岐にわたるため、別のドキュメントを参照
 
-see. <https://rimworldwiki.com/wiki/Modding_Tutorials/Mod_Folder_Structure>
+## 詳細
+
+「メカノイドは実行不可」と指定されている **作業** に対してパッチを当てて、メカノイドにも実行可能な作業にしている。
+
+- rimworldにおいては **仕事** の下に具体的な **作業** が所属する形になっている
+  - 例: 仕事:`採掘`
+    - 作業: `掘削`, `ボーリング`
+      - ※ボーリング : 深部ドリルマシンによる採掘
+- 作業側で 「メカノイドは実行不可」 と指定されている場合がある
+  - 例: `ボーリング`
+- 「メカノイドの作業可否」が明確に指定されていない作業もある
+  - 例: `掘削`
+  - おそらく 未指定 == 実行可能
+    - トンネラーは掘削が出来ている実例がある
 
 ## MID-SAVE
 
-途中導入および途中除去についての記述
+- 途中導入
+  - 問題ないと思われます
+- 途中除去
+  - 本Modによって実行可能になった作業を実施しているメカノイドがいるとエラーが出るかもしれません
 
 ## CONFLICT
 
-競合が予想されるmodについての記述
+- [More Mechanitor Mechs 2.0](https://steamcommunity.com/sharedfiles/filedetails/?id=3296057117)
+  - 本Modの変更と同等の処理が含まれているため、本Mod側を使用する意義が薄い
+- [Paramedics Feed Prisoners](https://steamcommunity.com/sharedfiles/filedetails/?id=2904976042) を筆頭とした **メカノイドが行える仕事の種類を増やすMod全般**
+  - 本Modの変更と同等の処理が含まれているため、併用する意義が薄い
 
 ## NOTICE
 
