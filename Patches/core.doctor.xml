@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- ===== 仕事 `医者` 内の作業の一部をメカでも実行可能にする ===== -->
+
+  <!--
+      * 他Modでも同等のパッチが入ってる可能性があるため、
+      * PatchOperationConditional で有無を判断しながらパッチを当てる
+  -->
+
+  <!-- 自己治療(DoctorTendToSelf) については、メカの修理と動物(人を含む)の治療は別枠なのでパッチ対象外とした -->
+
+  <!-- 患者に給仕 -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>//WorkGiverDef[defName="DoctorFeedHumanlikes"]/canBeDoneByMechs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>//WorkGiverDef[defName="DoctorFeedHumanlikes"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>//WorkGiverDef[defName="DoctorFeedHumanlikes"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- 動物看護 -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>//WorkGiverDef[defName="DoctorTendToAnimals"]/canBeDoneByMechs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>//WorkGiverDef[defName="DoctorTendToAnimals"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>//WorkGiverDef[defName="DoctorTendToAnimals"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- 家畜に給餌 -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>//WorkGiverDef[defName="DoctorFeedAnimals"]/canBeDoneByMechs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>//WorkGiverDef[defName="DoctorFeedAnimals"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>//WorkGiverDef[defName="DoctorFeedAnimals"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- お見舞い -->
+  <!-- ? メカにお見舞いさせていいのか正直怪しい -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>//WorkGiverDef[defName="VisitSickPawn"]/canBeDoneByMechs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>//WorkGiverDef[defName="VisitSickPawn"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>//WorkGiverDef[defName="VisitSickPawn"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </match>
+  </Operation>
+</Patch>
