@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- ===== 仕事 `芸術` 内の作業の一部をメカでも実行可能にする ===== -->
+
+  <!--
+      * 他Modでも同等のパッチが入ってる可能性があるため、
+      * PatchOperationConditional で有無を判断しながらパッチを当てる
+  -->
+
+  <!-- 建築物を塗る -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>//WorkGiverDef[defName="PaintBuilding"]/canBeDoneByMechs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>//WorkGiverDef[defName="PaintBuilding"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>//WorkGiverDef[defName="PaintBuilding"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- フロアを塗る -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>//WorkGiverDef[defName="PaintFloor"]/canBeDoneByMechs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>//WorkGiverDef[defName="PaintFloor"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>//WorkGiverDef[defName="PaintFloor"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- 色を除去する -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>//WorkGiverDef[defName="RemovePaintBuilding"]/canBeDoneByMechs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>//WorkGiverDef[defName="RemovePaintBuilding"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>//WorkGiverDef[defName="RemovePaintBuilding"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- フロアの色を除去する -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>//WorkGiverDef[defName="RemovePaintFloor"]/canBeDoneByMechs</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>//WorkGiverDef[defName="RemovePaintFloor"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>//WorkGiverDef[defName="RemovePaintFloor"]/canBeDoneByMechs</xpath>
+      <value>
+        <canBeDoneByMechs>true</canBeDoneByMechs>
+      </value>
+    </match>
+  </Operation>
+</Patch>
